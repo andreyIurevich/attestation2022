@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attestation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/shades-of-purple.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+  <script src="index.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        margin: 40px 20px;
+    }
+    .code-block {
+        background-color: #1d3d4e;
+        width: 600px;
+        padding: 0px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    .title-block {
+        display: flex;
+        justify-content: space-between;
+        background-color: #ffd700;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding: 10px 20px;
+    }
+    .title-text-block {
+        display: flex;
+        margin: 0px;
+        padding: 0px;
+    }
+    .buttons-container {
+        display: flex;
+    }
+    .button {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+    }
+    .buttons-container div:nth-child(3) {
+        background-color: #ff2400;
+    }
+    .buttons-container div:nth-child(2) {
+        background-color: #0099cc;
+    }
+    .buttons-container div:nth-child(1) {
+        background-color: #62d44d;
+    }
+    .buttons-container div:not(:last-child) {
+        margin-right: 5px;
+    }
+    .block-title {
+        padding-left: 20px;
+        font-family: 'Arial';
+        color: #717272;
+    }
+  </style>
+</head>
+<body>
+  <h4 class="block-title">Регулярные выражения - matchAll()</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - String.match()</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      const str = 'I love JavaScript';
+      const regexp = /Java(Script)/g;
+
+      console.log(str.match(/Java(Script)/));
+      // ['JavaScript', 'Script', index: 7,
+      //  input: 'I love JavaScript', groups: undefined]
+
+      console.log(str.match(/Java(Script)/g));
+      // ['JavaScript']
+    </code>
+  </pre>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - String.matchAll()</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      const str = "abc";
+      const regexp = /[a-c]/g;
+      const iterator = str.matchAll(regexp);
+
+      for (result of iterator) {
+        console.log(result);
+      }
+
+      // ["a", index: 0, input: "abc", groups: undefined]
+      // ["b", index: 1, input: "abc", groups: undefined]
+      // ["c", index: 2, input: "abc", groups: undefined]
+    </code>
+  </pre>
+  <h4 class="block-title">Динамический импорт модулей</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - Dynamic import()</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      // utils.js
+      export const add = (a, b) => a + b
+
+      // index.js
+      (async () => {
+        const module = await import('./utils.js');
+        console.log(module.add(5, 4));
+        // 9
+      })()
+    </code>
+  </pre>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - Dynamic import()</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      // utils.js
+      const add = (a, b) => a + b
+
+      export default add
+
+      // index.js
+      (async () => {
+        const module = await import('./utils.js');
+        console.log(module.default(5, 4));
+        // 9
+      })()
+    </code>
+  </pre>
+  <h4 class="block-title">Большие числа - Big Int</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - BigInt()</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      let s = BigInt(98n)
+      let b = BigInt(2n)
+
+      console.log(s + b)
+      // 100n
+      console.log(b - s)
+      // -96n
+      console.log(typeof s)
+      // 'bigint'
+    </code>
+  </pre>
+</body>
+</html>
