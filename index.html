@@ -184,5 +184,213 @@
       // 'bigint'
     </code>
   </pre>
+  <h4 class="block-title">Promise.allSettled()</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - Promise.allSettled()</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      const urls = [
+        'https://jsonplaceholder.typicode.com/users/1',
+        'https://jsonplaceholder.typicode.com/todos/1'
+      ]
+
+      Promise.allSettled(urls.map(url => fetch(url))).then(results => {
+        results.forEach(result => {
+          if (result.status === "fulfilled") {
+            console.log(result.value);
+          }
+          if (result.status === "rejected") {
+            console.log(result.reason);
+          }
+        })
+      })
+
+      // Если status = fulfilled, то
+      // { status: 'fulfilled', value: { объект результата } }
+      //
+      // Если status = rejected, то
+      // { status: 'rejected', reason: { причина отклонения } }
+    </code>
+  </pre>
+  <h4 class="block-title">Глобальный объект</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - globalThis</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      const arr = [1, 2, 3];
+
+      globalThis.Array.isArray(arr);
+
+      // true
+    </code>
+  </pre>
+  <h4 class="block-title">Оператор опциональной последовательности</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - optional chaining operator</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      const response = {
+        users: [
+          {
+            id: 1,
+            name: 'Ann',
+            age: 23,
+          }
+        ]
+      }
+
+      // get from lodash
+      get(response, 'users[0].id', 0) // 1
+
+      const userId = response && response.users &&
+        response.users[0] && response.users[0].id;
+      // 1
+
+      const userId = response.users?.[0]?.id; // 1
+    </code>
+  </pre>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - optional chaining operator</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      // использование с вызовом функции
+      let result = someInterface.customMethod?.();
+
+      function doSomething(onContent, onError) {
+        try {
+         // ... делаем что-то с данными
+        }
+        catch (err) {
+          onError?.(err.message);
+          // не выбросит исключение, если onError равен undefined
+        }
+      }
+
+
+    </code>
+  </pre>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - optional chaining operator</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      const response = {
+        users: [
+          {
+            id: 1,
+            name: 'Ann',
+            age: 23,
+          }
+        ]
+      }
+
+      // users будет удалён, если существует response
+      delete response?.users;
+    </code>
+  </pre>
+  <h4 class="block-title">Оператор нулевого слияния</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - optional chaining operator</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      a ?? b
+
+      // если a не равняется ни null, ни undefined, то a
+      // если a равно null или равно undefined, то b
+
+      result = (a !== null && a !== undefined) ? a : b
+    </code>
+  </pre>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - optional chaining operator</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      let height = 0;
+
+      height || 100; // 100
+      height ?? 100; // 0
+
+      const middleName = object?.names?.middle ?? '(no middle name)';
+      // '(no middle name)'
+
+      null || undefined ?? "foo"; // вызывает SyntaxError
+      (null || undefined) ?? "foo"; // вернёт "foo"
+    </code>
+  </pre>
+  <h4 class="block-title">Module namespace exports</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2020</b> - export * as namespace</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      import * as utils from "./utils.js";
+      export { utils };
+
+      // es2020
+      export * as utils from "./utils.js";
+    </code>
+  </pre>
 </body>
 </html>

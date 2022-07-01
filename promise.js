@@ -13,3 +13,15 @@ Promise.allSettled(urls.map(url => fetch(url))).then(results => {
     }
   })
 })
+
+const response = {
+  users: [
+    {
+      id: 1,
+      name: 'Ann',
+      age: 23,
+    }
+  ]
+}
+
+get(response, 'users[0].id', 0)
