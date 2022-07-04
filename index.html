@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/shades-of-purple.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
   <script src="index.js"></script>
+  <script src="promise.js"></script>
+  <script src="replace.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <style>
     .container {
@@ -390,6 +392,73 @@
 
       // es2020
       export * as utils from "./utils.js";
+    </code>
+  </pre>
+  <h4 class="block-title">ES2021</h4>
+  <h4 class="block-title">Private class methods</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2021</b> - private class methods</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      class Person {
+        #age = 20;
+
+        #displayName() {
+          console.log('-> Name');
+        }
+
+        displayName() {
+          console.log('-> Name: Andrey')
+        }
+
+        print() {
+          this.#displayName()
+        }
+
+        printAge() {
+          console.log('-> age: ', this.#age)
+        }
+      }
+
+      const obj = new Person();
+      obj.displayName();
+      obj.print();
+      obj.printAge();
+
+      // -> Name: Andrey
+      // -> Name
+      // -> age: 20
+    </code>
+  </pre>
+  <h4 class="block-title">String.replaceAll()</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2021</b> - String.replaceAll()</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      let str = 'red blue green red';
+
+      // до ES2021
+      str.replace('red', 'black'); // 'black blue green red'
+      str.replace(/red/g, 'black'); // 'black blue green black'
+
+      // ES2021
+      str.replaceAll('red', 'yellow'); // yellow blue green yellow
     </code>
   </pre>
 </body>

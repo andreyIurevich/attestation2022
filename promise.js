@@ -1,3 +1,4 @@
+/*
 const urls = [
   'https://jsonplaceholder.typicode.com/users/1',
   'https://jsonplaceholder.typicode.com/todos/1'
@@ -23,5 +24,28 @@ const response = {
     }
   ]
 }
+*/
+class Person {
+  #age = 20;
 
-get(response, 'users[0].id', 0)
+  #displayName() {
+    console.log('-> Name');
+  }
+
+  displayName() {
+    console.log('-> Name: Andrey')
+  }
+
+  print() {
+    this.#displayName()
+  }
+
+  printAge() {
+    console.log('-> age: ', this.#age)
+  }
+}
+
+const obj = new Person();
+obj.displayName();
+obj.print();
+obj.printAge();
