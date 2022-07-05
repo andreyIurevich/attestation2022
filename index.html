@@ -8,6 +8,7 @@
   <script src="index.js"></script>
   <script src="promise.js"></script>
   <script src="replace.js"></script>
+  <script src="finalizationRegistry.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <style>
     .container {
@@ -459,6 +460,152 @@
 
       // ES2021
       str.replaceAll('red', 'yellow'); // yellow blue green yellow
+    </code>
+  </pre>
+  <h4 class="block-title">Финализаторы</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2021</b> - FinalizationRegistry</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      const registry = new FinalizationRegistry((value) => {
+        console.log('-> print value: ', value);
+      });
+
+      (function () {
+        const obj = {};
+
+        registry.register(obj, "Object deleted");
+      })();
+
+      // -> print value:  Object deleted
+    </code>
+  </pre>
+  <h4 class="block-title">Promise.any()</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2021</b> - Promise.any()</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      (async () => {
+        try {
+          await Promise.any([
+            Promise.reject("Error 1"),
+            Promise.reject("Error 2")
+          ]);
+        } catch (e) {
+          console.log('-> print errors ', e.errors);
+        }
+      })()
+
+      // -> print errors ['Error 1', 'Error 2']
+    </code>
+  </pre>
+  <h4 class="block-title">Операторы логического присваивания</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2021</b> - Оператор логического присваивания &&= </label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      let a = 1;
+      let b = 5;
+
+      a &&= b; // 5
+
+      // эквивалентно
+      if (a) {
+        a = b;
+      }
+    </code>
+  </pre>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2021</b> - Оператор логического присваивания ||= </label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      let a;
+      let b = 3;
+
+      a ||= b; // 3
+
+      // эквивалентно
+      if (!a) {
+        a = b;
+      }
+    </code>
+  </pre>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2021</b> - Оператор логического присваивания ??= </label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      let a;
+      let b = 8;
+
+      a ??= b; // 8
+
+      // эквивалентно
+      if (a == null || a == undefined) {
+        a = b;
+      }
+    </code>
+  </pre>
+  <h4 class="block-title">Подчёркивание - как новый числовой разделитель</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2021</b> - Подчёркивание - числовой разделитель</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      const million = 1_000_000;
+      console.log(million); // 1000000
+
+      const max8bits = 0b1111_1111;
+      console.log(max8bits); // 255
+
+      const message = 0xa0_b0_c0;
+      console.log(message); // 10531008
     </code>
   </pre>
 </body>
