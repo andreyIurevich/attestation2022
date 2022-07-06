@@ -18,4 +18,6 @@ const registry = new FinalizationRegistry((value) => {
 })()
 */
 
+console.log('-> finalizationRegistry.js module');
+
 

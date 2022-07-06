@@ -1,4 +1,39 @@
 /*
+class Person {
+  age = 23;
+  #bankAccount = 'Sber';
+
+  constructor(value) {
+    this.name = value;
+  }
+
+  #printName() {
+    console.log('-> name', this.name);
+  }
+  print() {
+    console.log('-> age ', this.age);
+  }
+  static hasPrivateSlot(obj) {
+    return #bankAccount in obj;
+  }
+}
+
+const person = new Person('Ann');
+console.log('-> person ', Person.hasPrivateSlot(person))
+*/
+/*
+class Animal {
+  static englishWords = [];
+
+  static {
+    this.englishWords.push(['cat']);
+  }
+}
+
+console.log(Animal.englishWords)
+
+*/
+/*
 const urls = [
   'https://jsonplaceholder.typicode.com/users/1',
   'https://jsonplaceholder.typicode.com/todos/1'
@@ -24,7 +59,7 @@ const response = {
     }
   ]
 }
-*/
+
 class Person {
   #age = 20;
 
@@ -49,3 +84,7 @@ const obj = new Person();
 obj.displayName();
 obj.print();
 obj.printAge();
+
+ */
+
+

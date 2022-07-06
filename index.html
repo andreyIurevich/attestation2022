@@ -7,8 +7,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
   <script src="index.js"></script>
   <script src="promise.js"></script>
-  <script src="replace.js"></script>
-  <script src="finalizationRegistry.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <style>
     .container {
@@ -606,6 +604,175 @@
 
       const message = 0xa0_b0_c0;
       console.log(message); // 10531008
+    </code>
+  </pre>
+  <h4 class="block-title">New classes members</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2022</b> - new classes members</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      class MyClass {
+        instancePublicField = 1;
+        static staticPublicField = 2;
+
+        #instancePrivateField = 3;
+        static #staticPrivateField = 4;
+
+        #nonStaticPrivateMethod() {}
+        get #nonStaticPrivateAccessor() {}
+        set #nonStaticPrivateAccessor(value) {}
+
+        static #staticPrivateMethod() {}
+        static get #staticPrivateAccessor() {}
+        static set #staticPrivateAccessor(value) {}
+
+        static {
+          // Static initialization block
+        }
+
+        static hasPrivateSlot(obj) {
+          return #privateSlot in obj;
+        }
+
+        constructor(value) {
+          this.name = value;
+        }
+      }
+    </code>
+  </pre>
+  <h4 class="block-title">New classes members</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2022</b> - new classes members</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      class MyClass {
+        instancePublicField = 1;
+        static staticPublicField = 2;
+
+        #instancePrivateField = 3;
+        static #staticPrivateField = 4;
+
+        #nonStaticPrivateMethod() {}
+        get #nonStaticPrivateAccessor() {}
+        set #nonStaticPrivateAccessor(value) {}
+
+        static #staticPrivateMethod() {}
+        static get #staticPrivateAccessor() {}
+        static set #staticPrivateAccessor(value) {}
+
+        static {
+          // Static initialization block
+        }
+
+        static hasPrivateSlot(obj) {
+          return #privateSlot in obj;
+        }
+
+        constructor(value) {
+          this.name = value;
+        }
+      }
+    </code>
+  </pre>
+  <h4 class="block-title">RegExp match indices</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2022</b> - new regexp flag /d</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      /(a+)(b+)/d.exec('aaaabb')
+
+      // 0: "aaaabb"
+      // 1: "aaaa"
+      // 2: "bb"
+      // groups: undefined
+      // index: 0
+      // indices: Array(3)
+      //    0: [0, 6]
+      //    1: [0, 4]
+      //    2: [4, 6]
+      // groups: undefined
+      // input: "aaaabb"
+    </code>
+  </pre>
+  <h4 class="block-title">RegExp match indices</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2022</b> - new regexp flag /d</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      /(?< as >a+)(?< bs >b+)/d.exec('aaaabb')
+
+      // 0: "aaaabb"
+      // 1: "aaaa"
+      // 2: "bb"
+      // groups:
+      //   as: "aaaa"
+      //   bs: "bb"
+      // index: 0
+      // indices: Array(3)
+      //   0: [0, 6]
+      //   1: [0, 4]
+      //   2: [4, 6]
+      //   groups:
+      //     as: [0, 4]
+      //     bs: [4, 6]
+      // length: 3
+      // input: "aaaabb"
+    </code>
+  </pre>
+  <h4 class="block-title">New function .at()</h4>
+  <pre class="container">
+    <div class="title-block">
+      <div class="title-text-block">
+        <label><b>ES2022</b> - at()</label>
+      </div>
+      <div class="buttons-container">
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+    <code class="language-js code-block">
+      // Array
+      [3, 4, 5, 8, 0, 7].at(3) // 8
+
+      [3, 4, 5, 8, 0, 7].at(-2) // 0
+
+      // String
+      'str'.at(-1) // r
+
+      'str'.at(0) // s
     </code>
   </pre>
 </body>
