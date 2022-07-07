@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Attestation</title>
+  <script src="https://kit.fontawesome.com/be939dfb1b.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/shades-of-purple.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
   <script src="index.js"></script>
@@ -59,6 +60,24 @@
         padding-left: 20px;
         font-family: 'Arial';
         color: #717272;
+    }
+    .compatible-table {
+        /*min-width: 660px;*/
+        border: 1px solid #cdcdcd;
+        border-collapse: collapse;
+    }
+    .device-types {
+        border-left: 1px solid #cdcdcd;
+        border-right: 1px solid #cdcdcd;
+    }
+    .first-row-cell {
+        height: 80px;
+    }
+    .top-row-cell {
+        border-bottom: 1px solid #cdcdcd;
+    }
+    .browser-container {
+        padding: 10px 0px;
     }
   </style>
 </head>
@@ -775,5 +794,26 @@
       'str'.at(0) // s
     </code>
   </pre>
+  <h4 class="block-title">Браузерная совместимость</h4>
+  <table class="compatible-table">
+    <tr>
+      <th class="first-row-cell" style="width: 60px;"><i class="fa-brands fa-js"></i></th>
+      <th class="first-row-cell device-types top-row-cell" style="width: 300px;" colspan="4"><i class="fa-solid fa-desktop"></i></th>
+      <th class="first-row-cell device-types top-row-cell" colspan="3"><i class="fa-solid fa-mobile-screen-button"></i></th>
+      <th class="first-row-cell top-row-cell"><i class="fa-solid fa-bars"></i></th>
+    </tr>
+    <tr>
+      <th style="width: 60px;"></th>
+      <th class="device-types browser-container" style="width: 75px;"><i class="fa-brands fa-chrome"></i></th>
+      <th class="device-types browser-container" style="width: 75px;"><i class="fa-brands fa-edge"></i></th>
+      <th class="browser-container" style="width: 75px;"><i class="fa-brands fa-firefox"></i></th>
+      <th class="device-types browser-container" style="width: 75px;"><i class="fa-brands fa-safari"></i></th>
+      <th class="browser-container" style="width: 75px;"><i class="fa-brands fa-chrome"></i></th>
+      <th class="device-types browser-container" style="width: 75px;"><i class="fa-brands fa-firefox"></i></th>
+      <th class="browser-container" style="width: 75px;"><i class="fa-brands fa-safari"></i></th>
+      <th class="device-types browser-container" style="width: 75px;"><i class="fa-brands fa-node"></i></th>
+    </tr>
+  </table>
+
 </body>
 </html>
