@@ -65,19 +65,32 @@
         /*min-width: 660px;*/
         border: 1px solid #cdcdcd;
         border-collapse: collapse;
+        font-family: 'Arial';
     }
     .device-types {
-        border-left: 1px solid #cdcdcd;
-        border-right: 1px solid #cdcdcd;
+        font-size: 12px;
     }
     .first-row-cell {
         height: 80px;
     }
     .top-row-cell {
-        border-bottom: 1px solid #cdcdcd;
+        /*border-bottom: 1px solid #cdcdcd;*/
     }
     .browser-container {
         padding: 10px 0px;
+    }
+    .table-text {
+        height: 60px;
+    }
+    table, th, td {
+        border: 1px solid #cdcdcd;
+        border-collapse: collapse;
+        font-weight: normal;
+        font-size: 14px;
+    }
+    .icon {
+        font-size: 18px;
+        color: #696969;
     }
   </style>
 </head>
@@ -797,21 +810,197 @@
   <h4 class="block-title">Браузерная совместимость</h4>
   <table class="compatible-table">
     <tr>
-      <th class="first-row-cell" style="width: 60px;"><i class="fa-brands fa-js"></i></th>
-      <th class="first-row-cell device-types top-row-cell" style="width: 300px;" colspan="4"><i class="fa-solid fa-desktop"></i></th>
-      <th class="first-row-cell device-types top-row-cell" colspan="3"><i class="fa-solid fa-mobile-screen-button"></i></th>
-      <th class="first-row-cell top-row-cell"><i class="fa-solid fa-bars"></i></th>
+      <th class="first-row-cell icon" style="width: 160px;"><i class="fa-brands fa-js"></i></th>
+      <th class="first-row-cell device-types top-row-cell icon" style="width: 300px;" colspan="4"><i class="fa-solid fa-desktop"></i></th>
+      <th class="first-row-cell device-types top-row-cell icon" colspan="3"><i class="fa-solid fa-mobile-screen-button"></i></th>
+      <th class="first-row-cell top-row-cell icon"><i class="fa-solid fa-bars"></i></th>
     </tr>
     <tr>
       <th style="width: 60px;"></th>
-      <th class="device-types browser-container" style="width: 75px;"><i class="fa-brands fa-chrome"></i></th>
-      <th class="device-types browser-container" style="width: 75px;"><i class="fa-brands fa-edge"></i></th>
-      <th class="browser-container" style="width: 75px;"><i class="fa-brands fa-firefox"></i></th>
-      <th class="device-types browser-container" style="width: 75px;"><i class="fa-brands fa-safari"></i></th>
-      <th class="browser-container" style="width: 75px;"><i class="fa-brands fa-chrome"></i></th>
-      <th class="device-types browser-container" style="width: 75px;"><i class="fa-brands fa-firefox"></i></th>
-      <th class="browser-container" style="width: 75px;"><i class="fa-brands fa-safari"></i></th>
-      <th class="device-types browser-container" style="width: 75px;"><i class="fa-brands fa-node"></i></th>
+      <th class="browser-container icon" style="width: 75px;"><i class="fa-brands fa-chrome"></i><div class="device-types">Chrome</div></th>
+      <th class="browser-container icon" style="width: 75px;"><i class="fa-brands fa-edge"></i><div class="device-types">Edge</div></th></th>
+      <th class="browser-container icon" style="width: 75px;"><i class="fa-brands fa-firefox"></i><div class="device-types">Firefox</div></th></th></th>
+      <th class="browser-container icon" style="width: 75px;"><i class="fa-brands fa-safari"></i><div class="device-types">Safari</div></th></th></th>
+      <th class="browser-container icon" style="width: 75px;"><i class="fa-brands fa-chrome"></i><div class="device-types">Chrome Android</div></th></th></th>
+      <th class="browser-container icon" style="width: 75px;"><i class="fa-brands fa-firefox"></i><div class="device-types">Firefox Android</div></th></th></th>
+      <th class="browser-container icon" style="width: 75px;"><i class="fa-brands fa-safari"></i><div class="device-types">Safari iOS</div></th></th></th>
+      <th class="browser-container icon" style="width: 75px;"><i class="fa-brands fa-node"></i><div class="device-types">Node.js</div></th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px; font-weight: normal;"><code>String.matchAll()</code></th>
+      <th>73</th>
+      <th>79</th>
+      <th>67</th>
+      <th>13</th>
+      <th>73</th>
+      <th>67</th>
+      <th>13</th>
+      <th>12.0.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>BigInt</code></th>
+      <th>67</th>
+      <th>79</th>
+      <th>68</th>
+      <th>14</th>
+      <th>67</th>
+      <th>68</th>
+      <th>14</th>
+      <th>10.4.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>Promise.allSettled()</code></th>
+      <th>76</th>
+      <th>79</th>
+      <th>71</th>
+      <th>13</th>
+      <th>76</th>
+      <th>79</th>
+      <th>13</th>
+      <th>12.9.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>globalThis</code></th>
+      <th>71</th>
+      <th>79</th>
+      <th>65</th>
+      <th>12.1</th>
+      <th>71</th>
+      <th>65</th>
+      <th>12.2</th>
+      <th>12.0.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>Оператор нулевого слияния (??)</code></th>
+      <th>80</th>
+      <th>80</th>
+      <th>72</th>
+      <th>13.1</th>
+      <th>80</th>
+      <th>79</th>
+      <th>13.4</th>
+      <th>14.0.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>Приватные поля класса</code></th>
+      <th>74</th>
+      <th>79</th>
+      <th>90</th>
+      <th>14.1</th>
+      <th>74</th>
+      <th>90</th>
+      <th>14.5</th>
+      <th>12.0.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>Приватные методы класса</code></th>
+      <th>84</th>
+      <th>84</th>
+      <th>90</th>
+      <th>15</th>
+      <th>84</th>
+      <th>90</th>
+      <th>15</th>
+      <th>14.6.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>Статические поля класса</code></th>
+      <th>72</th>
+      <th>79</th>
+      <th>75</th>
+      <th>14.1</th>
+      <th>72</th>
+      <th>79</th>
+      <th>14.5</th>
+      <th>12.0.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>Class static initialization blocks</code></th>
+      <th>94</th>
+      <th>94</th>
+      <th>93</th>
+      <th>No</th>
+      <th>94</th>
+      <th>93</th>
+      <th>No</th>
+      <th>16.11.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>String.replaceAll</code></th>
+      <th>85</th>
+      <th>85</th>
+      <th>77</th>
+      <th>13.1</th>
+      <th>85</th>
+      <th>79</th>
+      <th>13.4</th>
+      <th>15.0.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>FinalizationRegistry</code></th>
+      <th>84</th>
+      <th>84</th>
+      <th>79</th>
+      <th>14.1</th>
+      <th>84</th>
+      <th>79</th>
+      <th>14.5</th>
+      <th>14.6.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>Promise.any</code></th>
+      <th>85</th>
+      <th>85</th>
+      <th>79</th>
+      <th>14</th>
+      <th>85</th>
+      <th>79</th>
+      <th>14</th>
+      <th>15.0.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>Оператор логического присваивания (&&=) </code></th>
+      <th>85</th>
+      <th>85</th>
+      <th>79</th>
+      <th>14</th>
+      <th>85</th>
+      <th>79</th>
+      <th>14</th>
+      <th>15.0.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>Оператор логического присваивания (||=) </code></th>
+      <th>85</th>
+      <th>85</th>
+      <th>79</th>
+      <th>14</th>
+      <th>85</th>
+      <th>79</th>
+      <th>14</th>
+      <th>15.0.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>Оператор логического присваивания (??=) </code></th>
+      <th>85</th>
+      <th>85</th>
+      <th>79</th>
+      <th>14</th>
+      <th>85</th>
+      <th>79</th>
+      <th>14</th>
+      <th>15.0.0</th>
+    </tr>
+    <tr>
+      <th class="table-text" style="width: 160px;"><code>Array.at()</code></th>
+      <th>92</th>
+      <th>92</th>
+      <th>90</th>
+      <th>15.4</th>
+      <th>92</th>
+      <th>90</th>
+      <th>15.4</th>
+      <th>16.6.0</th>
     </tr>
   </table>
 
